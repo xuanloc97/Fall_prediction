@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from recognition.views import index, display_image
+from recognition.views import index, display_image, hotel_image_view, success, display_hotel_images
 
 ###
 from django.conf import settings
@@ -25,6 +25,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('AppRecognition/',index,name = "home"),
     url('Display/',display_image),
+    url('hotel/',hotel_image_view),
+    url('success', success, name = 'success'), 
+    url('hotel_images', display_hotel_images, name = 'hotel_images'),
 ]
 
 if settings.DEBUG:
