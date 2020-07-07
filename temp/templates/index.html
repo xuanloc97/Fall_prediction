@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head>
+	<meta charset="UTF-8">
+	<title>Images</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script>
+</head> -->
+
+<head>
+	<style>
+		/* input[type=checkbox] {
+			display: none;
+		}
+
+		.col-md-4 img {
+			margin: 100px;
+			transition: transform 0.25s ease;
+			cursor: zoom-in;
+		}
+
+		input[type=checkbox]:checked~label>img {
+			transform: scale(2);
+			cursor: zoom-out;
+		} */
+		.col-md-4 input[type=checkbox] {
+			display: none
+		}
+
+		.col-md-4 img {
+			margin: 100px;
+			transition: transform 0.25s ease;
+			cursor: zoom-in
+		}
+
+		.col-md-4 input[type=checkbox]:checked~img {
+			transform: scale(2);
+			cursor: zoom-out
+		}
+	</style>
+</head>
+
+<body>
+
+	{% for name in image_names %}
+	<div class="col-md-4">
+		<input type="checkbox" id="zoomCheck">
+		<label for="zoomCheck">
+			<img src="{{ url_for('static', filename= name) }}" title="ssss">
+		</label>
+
+	</div>
+	{% endfor %}
+
+</body>
+
+</html>
