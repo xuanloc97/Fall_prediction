@@ -1,9 +1,9 @@
-# Inside app.py
 import os
 from flask import Flask,request,render_template
 
 from .config import ROOT_PATH
 print(ROOT_PATH)
+
 app = Flask(__name__)
 
 @app.route('/')
