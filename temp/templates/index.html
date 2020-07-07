@@ -14,12 +14,12 @@
 
 <head>
 	<style>
-		/* input[type=checkbox] {
+		input[type=checkbox] {
 			display: none;
 		}
 
 		.col-md-4 img {
-			margin: 100px;
+			margin: 50px;
 			transition: transform 0.25s ease;
 			cursor: zoom-in;
 		}
@@ -27,20 +27,23 @@
 		input[type=checkbox]:checked~label>img {
 			transform: scale(2);
 			cursor: zoom-out;
-		} */
-		.col-md-4 input[type=checkbox] {
-			display: none
 		}
 
-		.col-md-4 img {
-			margin: 100px;
-			transition: transform 0.25s ease;
-			cursor: zoom-in
+		.col-md-4 input[type=checkbox] {
+			display: none
 		}
 
 		.col-md-4 input[type=checkbox]:checked~img {
 			transform: scale(2);
 			cursor: zoom-out
+		}
+
+
+		.center {
+			display: block;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			width: 50%;
 		}
 	</style>
 </head>
@@ -48,15 +51,21 @@
 <body>
 
 	{% for name in image_names %}
-	<div class="col-md-4">
-		<input type="checkbox" id="zoomCheck">
-		<label for="zoomCheck">
-			<img src="{{ url_for('static', filename= name) }}" title="ssss">
-		</label>
+	<div class="col-md-4 container">
+		<div class="">
+			<input type="checkbox" id="{{name}}">
+			<label for="{{name}}">
+				<img src="{{ url_for('static', filename= name) }}" title="ssss" alt="{{name}}" class="center">
+			</label>
+			<div style="text-align: center;">
+				<span><i>{{name}}</i></span>
+			</div>
+		</div>
 
 	</div>
 	{% endfor %}
 
 </body>
+
 
 </html>
