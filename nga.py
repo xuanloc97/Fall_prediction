@@ -1,12 +1,13 @@
 import os
 import cv2
-import numpy as np
 import math
+import numpy as np
 #import winsound
 import imutils
 import time, datetime
 
-from config import ROOT_PATH
+#Read config 
+from config import ROOT_PATH, TIME_FORMAT
 
 cap = cv2.VideoCapture(0)
 
@@ -129,9 +130,10 @@ while True:
                             #print (list_falls[len(list_falls)-1]-list_falls[len(list_falls)-2])
                             cv2.rectangle(frame, r_pos, (end_x, end_y), r_color, r_thickness)
                             print ("Fall detected")
-                            time_str = datetime.datetime.now().strftime("%m%d%Y-%H:%M:%S")
-                            if count_fall == 10:
-                                cv2.imwrite(SAVING_IMG_PATH+time_str+".jpg", frame)
+                            #get current time 
+                            time_str = datetime.datetime.now().strftime(TIME_FORMAT)
+                            #Save image
+                            cv2.imwrite(SAVING_IMG_PATH+time_str+".jpg", frame)
                         else:
                             continue
 
